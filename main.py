@@ -19,9 +19,9 @@ def hello_world():
 
 @app.route("/validador")
 def validador():
+    peticiones_ok = 0
+    peticiones_error = 0
     for i in range(98):
-        peticiones_ok = 0
-        peticiones_error = 0
         id_paiente = i + 1
         servicio_factura_1 = requests.get(f'https://facturador-1-ndwos22ynq-uc.a.run.app/facturador?id_paciente={id_paiente}')
         servicio_factura_2 = requests.get(f'https://facturador-2-ndwos22ynq-uc.a.run.app/facturador?id_paciente={id_paiente}')
@@ -40,7 +40,7 @@ def validador():
             else:
                 peticiones_error +=1
 
-    return {"peticiones correctas":peticiones_ok,"peticiones con":peticiones_error}
+    return {"peticiones correctas":peticiones_ok,"peticiones inconsistentes":peticiones_error}
 
 
 if __name__ == "__main__":
