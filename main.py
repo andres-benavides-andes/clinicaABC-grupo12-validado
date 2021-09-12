@@ -24,7 +24,7 @@ def validador():
     fallas_ser_1 = 0
     fallas_ser_2 = 0
     fallas_ser_3 = 0
-    for i in range(99):
+    for i in range(100):
         id_paiente = i + 1
         servicio_factura_1 = requests.get(f'https://facturador-1-ndwos22ynq-uc.a.run.app/facturador?id_paciente={id_paiente}')
         servicio_factura_2 = requests.get(f'https://facturador-2-ndwos22ynq-uc.a.run.app/facturador?id_paciente={id_paiente}')
